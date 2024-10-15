@@ -12,7 +12,7 @@ export const Tasks = () => {
         {filteredTodos.map((todo) => (
           <li
             key={todo.id}
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer hover:opacity-70"
             onClick={() => toggleTodo(todo.id)}
             role="button"
             tabIndex={0}

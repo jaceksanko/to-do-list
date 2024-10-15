@@ -40,7 +40,7 @@ export default {
     function ({ addComponents }) {
       addComponents({
         ".btn": {
-          "@apply pl-4 pr-3 py-8.5 rounded-8 bg-white border border-border-color font-medium text-text-color":
+          "@apply pl-4 pr-3 py-8.5 rounded-8 bg-white border border-border-color font-medium text-text-color hover:opacity-70":
             {},
         },
         ".btn-active": {
