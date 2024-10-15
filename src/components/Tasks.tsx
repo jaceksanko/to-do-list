@@ -7,17 +7,21 @@ export const Tasks = () => {
 
   return (
     <section>
-      {filteredTodos.map((todo) => (
-        <div key={todo.id} className="flex items-center mb-2">
-          <input
-            type="checkbox"
-            checked={todo.isDone}
-            className="mr-2"
-            onChange={() => toggleTodo(todo.id)}
-          />
-          <span className={todo.isDone ? "line-through" : ""}>{todo.name}</span>
-        </div>
-      ))}
+      <ul>
+        {filteredTodos.map((todo) => (
+          <li key={todo.id} className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              checked={todo.isDone}
+              className="mr-2"
+              onChange={() => toggleTodo(todo.id)}
+            />
+            <span className={todo.isDone ? "line-through" : ""}>
+              {todo.name}
+            </span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
