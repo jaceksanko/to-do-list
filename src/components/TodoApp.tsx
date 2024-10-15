@@ -5,7 +5,7 @@ import { FilteredTodosProvider } from "../context/FilteredTodosContext";
 
 export const TodoApp = () => {
   return (
-    <div className="max-w-md mx-auto p-4">
+    <div className="max-w-md mx-auto min-w-[285px]">
       <NewTaskInput />
       <FilteredTodosProvider>
         <Filters />

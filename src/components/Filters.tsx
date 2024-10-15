@@ -7,16 +7,16 @@ export const Filters = () => {
       <section className="mb-4 flex justify-between">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded ${
-            filter === "all" ? "bg-blue-500 text-white" : "bg-gray-300"
-          }`}
+          className={`btn  ${
+            filter === "all" ? "btn-active" : ""
+          } pl-31.69 pr-23.69 `}
         >
           Show all
         </button>
         <button
           onClick={() => setFilter("active")}
-          className={`px-4 py-2 rounded ${
-            filter === "active" ? "bg-blue-500 text-white" : "bg-gray-300"
+          className={`btn ${
+            filter === "active" ? "btn-active" : ""
           }`}
         >
           Hide completed

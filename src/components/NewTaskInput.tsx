@@ -29,11 +29,11 @@ export const NewTaskInput = () => {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="border rounded p-2 w-full pr-10 "
+        className="border rounded-8 py-14.5 pl-6 w-full pr-10 font-semibold text-text-color"
       />
       <button
         onClick={handleClick}
-        className="absolute right-0 top-0  bg-transparent px-3 focus:outline-none border-none cursor-pointer"
+        className="absolute right-0 top-0  bg-transparent p-14.5 focus:outline-none border-none cursor-pointer"
       >
         <img src={ArrowDropDown} alt="Strzałka" width="24" height="24" />
       </button>
