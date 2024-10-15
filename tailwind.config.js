@@ -18,10 +18,21 @@ export default {
         "active-color": "#17A2B8",
       },
       spacing: {
+        6.5: "6.5px",
         14.5: "14.5px",
         8.5: "8.5px",
         31.69: "31.69px",
         23.69: "23.69px",
+      },
+      boxShadow: {
+        custom:
+          "0px 1px 2px rgba(0, 0, 0, 0.1), 1px 1px 3px rgba(0, 0, 0, 0.08)",
+      },
+      width: {
+        18: "18px",
+      },
+      height: {
+        18: "18px",
       },
     },
   },
