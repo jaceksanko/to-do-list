@@ -16,7 +16,7 @@ export const FilteredTodosProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { todos } = useStore();
+  const { todos } = useStore() as { todos: Todo[] };
   const [filter, setFilter] = useState<"all" | "active">("all");
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>([]);
 
