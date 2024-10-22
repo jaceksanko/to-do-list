@@ -1,6 +1,6 @@
 import { useFilteredTodos } from "../context/useFilteredTodos";
 import useStore from "../store/useStore";
-import doneIcon from "../assets/done.svg";
+import DoneIcon from "../assets/done.svg?react";
 
 export const Tasks = () => {
   const { toggleTodo, removeTodo } = useStore();
@@ -24,7 +24,7 @@ export const Tasks = () => {
                   : "bg-white border-checkbox-colo border-2"
               } flex items-center justify-center`}
             >
-              {todo.isDone && <img src={doneIcon} alt="Task done" />}
+              {todo.isDone && <DoneIcon />}
             </div>
             <span
               className={`font-medium hover:opacity-70  ${
