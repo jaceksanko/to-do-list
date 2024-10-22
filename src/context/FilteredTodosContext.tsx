@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import useStore, { Todo } from "../store/useStore";
 
-interface FilteredTodosContextType {
+export interface FilteredTodosContextType {
   filteredTodos: Todo[];
   filter: "all" | "active";
   setFilter: React.Dispatch<React.SetStateAction<"all" | "active">>;
