@@ -6,8 +6,13 @@ import {
 } from "../../context/FilteredTodosContext";
 import "@testing-library/jest-dom";
 import * as useFilteredTodosModule from "../../context/useFilteredTodos";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 describe("Filters", () => {
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
   it("renders two buttons", () => {
     render(
       <FilteredTodosProvider>
@@ -31,8 +36,8 @@ describe("Filters", () => {
   });
 
   it("calls setFilter with the appropriate argument when a button is clicked", () => {
-    const mockSetFilter = jest.fn();
-    jest.spyOn(useFilteredTodosModule, "useFilteredTodos").mockReturnValue({
+    const mockSetFilter = vi.fn();
+    vi.spyOn(useFilteredTodosModule, "useFilteredTodos").mockReturnValue({
       filter: "all",
       setFilter: mockSetFilter,
       filteredTodos: [],
