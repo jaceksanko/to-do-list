@@ -41,10 +41,51 @@ describe("Tasks Component", () => {
     expect(toggleTodoMock).toHaveBeenCalledWith(1);
   });
 
-  it("should remove todo on delete button click", () => {
+  it("should call removeTodo and prevent propagation when delete button is clicked", () => {
     render(<Tasks />);
-    const deleteButton = screen.getAllByRole("button")[1];
+    const deleteButton = screen.getByTestId("delete-button-1");
+
+    toggleTodoMock.mockClear();
+    removeTodoMock.mockClear();
+
     fireEvent.click(deleteButton);
+
     expect(removeTodoMock).toHaveBeenCalledWith(1);
+    expect(toggleTodoMock).not.toHaveBeenCalled();
+  });
+
+  it("should apply correct styling for completed and uncompleted tasks", () => {
+    render(<Tasks />);
+
+    const uncompletedTaskCheckbox =
+      screen.getByText("Task 1").previousElementSibling;
+    const completedTaskCheckbox =
+      screen.getByText("Task 2").previousElementSibling;
+
+    expect(uncompletedTaskCheckbox).toHaveClass("bg-white");
+    expect(uncompletedTaskCheckbox).toHaveClass("border-checkbox-color");
+    expect(uncompletedTaskCheckbox).toHaveClass("border-2");
+    expect(uncompletedTaskCheckbox).not.toHaveClass("bg-active-color");
+
+    expect(completedTaskCheckbox).toHaveClass("bg-active-color");
+    expect(completedTaskCheckbox).not.toHaveClass("bg-white");
+    expect(completedTaskCheckbox).not.toHaveClass("border-checkbox-color");
+    expect(completedTaskCheckbox).not.toHaveClass("border-2");
+  });
+
+  it("should render DoneIcon only for completed tasks", () => {
+    render(<Tasks />);
+
+    const uncompletedTaskCheckbox =
+      screen.getByText("Task 1").previousElementSibling;
+    const completedTaskCheckbox =
+      screen.getByText("Task 2").previousElementSibling;
+
+    expect(uncompletedTaskCheckbox).not.toContainElement(
+      screen.queryByTestId("done-icon")
+    );
+    expect(completedTaskCheckbox).toContainElement(
+      screen.getByTestId("done-icon")
+    );
   });
 });

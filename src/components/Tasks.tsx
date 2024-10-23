@@ -21,10 +21,10 @@ export const Tasks = () => {
               className={`w-18 h-18  rounded-md mr-6.5 cursor-pointer hover:opacity-70 ${
                 todo.isDone
                   ? "bg-active-color"
-                  : "bg-white border-checkbox-colo border-2"
+                  : "bg-white border-checkbox-color border-2"
               } flex items-center justify-center`}
             >
-              {todo.isDone && <DoneIcon />}
+              {todo.isDone && <DoneIcon data-testid="done-icon" />}
             </div>
             <span
               className={`font-medium hover:opacity-70  ${
@@ -41,6 +41,7 @@ export const Tasks = () => {
               }}
               role="button"
               tabIndex={0}
+              data-testid={`delete-button-${todo.id}`}
             >
               🗑️
             </button>
