@@ -10,14 +10,14 @@ export const Filters = () => {
           className={`btn  ${
             filter === "all" ? "btn-active" : ""
           } pl-31.69 pr-23.69 `}
+          data-testid="show-all-button"
         >
           Show all
         </button>
         <button
           onClick={() => setFilter("active")}
-          className={`btn ${
-            filter === "active" ? "btn-active" : ""
-          }`}
+          className={`btn ${filter === "active" ? "btn-active" : ""}`}
+          data-testid="hide-completed-button"
         >
           Hide completed
         </button>

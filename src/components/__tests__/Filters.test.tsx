@@ -20,8 +20,8 @@ describe("Filters", () => {
       </FilteredTodosProvider>
     );
 
-    expect(screen.getByText("Show all")).toBeInTheDocument();
-    expect(screen.getByText("Hide completed")).toBeInTheDocument();
+    expect(screen.getByTestId("show-all-button")).toBeInTheDocument();
+    expect(screen.getByTestId("hide-completed-button")).toBeInTheDocument();
   });
 
   it('the "Show all" button has the active class when the filter is set to "all"', () => {
@@ -31,8 +31,10 @@ describe("Filters", () => {
       </FilteredTodosProvider>
     );
 
-    expect(screen.getByText("Show all")).toHaveClass("btn-active");
-    expect(screen.getByText("Hide completed")).not.toHaveClass("btn-active");
+    expect(screen.getByTestId("show-all-button")).toHaveClass("btn-active");
+    expect(screen.getByTestId("hide-completed-button")).not.toHaveClass(
+      "btn-active"
+    );
   });
 
   it("calls setFilter with the appropriate argument when a button is clicked", () => {
@@ -49,10 +51,10 @@ describe("Filters", () => {
       </FilteredTodosProvider>
     );
 
-    fireEvent.click(screen.getByText("Hide completed"));
+    fireEvent.click(screen.getByTestId("hide-completed-button"));
     expect(mockSetFilter).toHaveBeenCalledWith("active");
 
-    fireEvent.click(screen.getByText("Show all"));
+    fireEvent.click(screen.getByTestId("show-all-button"));
     expect(mockSetFilter).toHaveBeenCalledWith("all");
   });
 });
