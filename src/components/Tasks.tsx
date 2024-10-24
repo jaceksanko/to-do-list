@@ -1,6 +1,6 @@
 import { useFilteredTodos } from "../context/useFilteredTodos";
 import useStore from "../store/useStore";
-import DoneIcon from "../assets/done.svg?react";
+import { TaskItem } from "./TaskItem";
 
 export const Tasks = () => {
   const { toggleTodo, removeTodo } = useStore();
@@ -8,44 +8,14 @@ export const Tasks = () => {
 
   return (
     <section>
-      <ul className="list-none border border-border-color rounded-8 p-6 shadow-custom flex flex-col gap-5">
+      <ul className="list-none border border-border-color rounded-8 p-6 shadow-custom flex flex-col">
         {filteredTodos.map((todo) => (
-          <li
+          <TaskItem
             key={todo.id}
-            className="flex items-center cursor-pointer"
-            onClick={() => toggleTodo(todo.id)}
-            role="button"
-            tabIndex={0}
-          >
-            <div
-              className={`w-18 h-18  rounded-md mr-6.5 cursor-pointer hover:opacity-70 ${
-                todo.isDone
-                  ? "bg-active-color"
-                  : "bg-white border-checkbox-color border-2"
-              } flex items-center justify-center`}
-            >
-              {todo.isDone && <DoneIcon data-testid="done-icon" />}
-            </div>
-            <span
-              className={`font-medium hover:opacity-70  ${
-                todo.isDone ? "text-active-color" : "text-text-color-light"
-              }`}
-            >
-              {todo.name}
-            </span>
-            <button
-              className="ml-auto hover:opacity-70"
-              onClick={(e) => {
-                e.stopPropagation();
-                removeTodo(todo.id);
-              }}
-              role="button"
-              tabIndex={0}
-              data-testid={`delete-button-${todo.id}`}
-            >
-              🗑️
-            </button>
-          </li>
+            todo={todo}
+            onToggle={() => toggleTodo(todo.id)}
+            onRemove={() => removeTodo(todo.id)}
+          />
         ))}
       </ul>
     </section>
